@@ -1,11 +1,22 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tuto_app_nicodevelop/screens/home_screen.dart';
+import 'package:json_theme/json_theme.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await EasyLocalization.ensureInitialized();
+
+// Récupére le fichier de configuration theme
+  final themeStr = await rootBundle.loadString('assets/theme.json');
+// conversion du fichier en objet
+  final themeJson = jsonDecode(themeStr);
+  // conversion en theme flutter
+  final theme = ThemeDecoder.decodeThemeData(themeJson)!;
+
   
 
   runApp(EasyLocalization (
@@ -13,13 +24,16 @@ void main() async {
     supportedLocales: const  [Locale('en'), Locale('fr')],
     path: 'assets/translations',
     fallbackLocale: const Locale('en'),
-     child: const App(),
+     child:  App(theme: theme),
     
-  ));
+  ),);
 }
 
 class App extends StatelessWidget {
-  const App({super.key});
+  final ThemeData theme;
+  const App({
+    required this.theme,
+    super.key});
 
   // This widget is the root of your application.
   @override
@@ -29,6 +43,7 @@ class App extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'Better Devs',
+      theme: theme,
       home: const HomeScreen(),
     );
   }
