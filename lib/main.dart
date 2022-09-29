@@ -29,7 +29,7 @@ class App extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'Better Devs',
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

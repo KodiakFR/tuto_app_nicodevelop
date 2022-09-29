@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    context.setLocale(Locale('en'));
+    context.setLocale(Locale('fr'));
     print('langue: ' + context.locale.toString());
 
     return Scaffold(body: Center(child: Text(tr('homeScreen.text1'))),);
