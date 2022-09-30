@@ -6,12 +6,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setLocale(Locale('fr'));
-    print('langue: ' + context.locale.toString());
+    context.setLocale(const Locale('fr'));
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title:  Text(tr('homeScreen.title')),
       ),
       body: Center(
         child: Text(

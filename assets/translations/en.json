@@ -1,6 +1,7 @@
 {
     "homeScreen":{
-        "text1" : "Hello!"
+        "text1" : "Hello!",
+        "title" : "Home"
 
 }
 
