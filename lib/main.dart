@@ -12,6 +12,7 @@ import 'package:json_theme/json_theme.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:tuto_app_nicodevelop/services/service_factory.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -95,13 +96,15 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      title: 'Better Devs',
-      theme: theme,
-      home: const HomeScreen(),
+    return ServiceFactory(
+      child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        debugShowCheckedModeBanner: false,
+        title: 'Better Devs',
+        theme: theme,
+        home: const HomeScreen(),
+      ),
     );
   }
 }

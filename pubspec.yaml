@@ -43,6 +43,8 @@ dependencies:
   firebase_storage: ^10.3.10
   cloud_firestore: ^3.5.0
   cloud_functions: ^3.3.9
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
 
 
 dev_dependencies:
